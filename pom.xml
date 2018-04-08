@@ -245,6 +245,19 @@
                 <goals>deploy nexus-staging:release</goals>
               </configuration>
             </plugin>
+            <!-- We want to sign the artifact, the POM, and all attached artifacts -->
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-gpg-plugin</artifactId>
+              <executions>
+                <execution>
+                  <id>sign-release-artifacts</id>
+                  <goals>
+                    <goal>sign</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
         </plugins>
     </build>
 
